@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Feel From Music</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../../static/css/styles.css" rel="stylesheet" />
+        <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+        </script>
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="{{url_for('index')}}">Feel From Music</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{url_for('index')}}">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{url_for('index', _anchor='sMood')}}">Explore Mood</a></li>
+ 
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+
+            {% if mood == 'happy' %}
+                <header class="masthead" id="first" style="background-image: url('../../static/assets/img/ha_bg.jpg'); background-position: 90% 10%;">
+            {% elif mood == 'sad' %}
+                <header class="masthead" id="first" style="background-image: url('../../static/assets/img/sa_bg.jpg'); background-position: 90% 40%;">
+            {% elif mood == 'calm' %}
+                <header class="masthead" id="first" style="background-image: url('../../static/assets/img/ca_bg.jpg'); background-position: 90% 20%;">
+            {% else %}
+                <header class="masthead" id="first" style="background-image: url('../../static/assets/img/en_bg.jpg');background-position: 90% 20%;">
+            {% endif %}
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                        <div class="site-heading">
+                            <h2>Result for {{mood}} music</h2>
+                        </div>
+                        <center>
+
+                        </center>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="first-section mb-5" id="main">
+                    <!-- Post preview-->
+                    <center>
+                    <h2 class="h2-title mt-5 mb-4"><span><i class="fa-solid fa-music"></i></span> Recommendation
+      <a href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="This music recommendation system was designed using the data available on Spotify. The below list of
+music is ordered by popularity, from highest to lowest, which is calculated on scale of 0 to 100 based
+on various types of data collected from the daily activities of Spotify’s users." class="info-btn"><i class="fa-regular fa-circle-question"></i></a>
+
+</h2>
+                        <p class="result-w mt-4">
+                            
+                            Sentiment analysis was conducted on every music in the list by applying natural language processing
+on reddit posts to quantify reddit users’ positivity, negativity, or neutrality towards a certain piece of
+music. The percentage value represents the ratio of reddit posts demonstrating positive sentiment
+against those demonstrating negative sentiment. 
+
+                        </p>
+                    <div class="row">
+                        <div class="col">
+                            <ul class="recommend mt-2 me-4">
+                                <li class="reli">"{{music_list[0]}}" - {{artist_list[0]}}</li>
+                                <li class="reli">"{{music_list[1]}}" - {{artist_list[1]}}</li>
+                                <li class="reli">"{{music_list[2]}}" - {{artist_list[2]}}</li>
+                                <li class="reli">"{{music_list[3]}}" - {{artist_list[3]}}</li>
+                                <li class="reli">"{{music_list[4]}}" - {{artist_list[4]}}</li>
+<!--                                 <li class="reli" id="more">Sixth Artist - Sixth Title</li>
+                                <li class="reli" id="more">Seventh Artist - Seventh Title</li>
+                                <li class="reli" id="more">Eighth Artist - Eighth Title</li>
+                                <li class="reli" id="more">Nineth Artist - Nineth Title</li>
+                                <li class="reli" id="more">Tenth Artist - Tenth Title</li> -->
+                            </ul>
+
+
+                        </div>
+                        <div class="col">
+                            <ul class="recommend mt-4 me-4">
+                                <li class="mb-4">
+                                    <div class="progress">
+
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[0]}}%">
+                                            <span class="good"><i class="fa-solid fa-face-smile-beam"></i> {{sentiment_list[0]}}%</span>
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[0]}}%">
+                                            <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> {{sentiment_list2[0]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+                                <li class="mb-4">
+                                    <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width: {{sentiment_list[1]}}%">
+                                            <span class="good"><i class="fa-solid fa-face-smile-beam"></i> {{sentiment_list[1]}}%</span>
+
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width: {{sentiment_list2[1]}}%">
+                                            <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> {{sentiment_list2[1]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+                                <li class="mb-4">
+                                    <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width: {{sentiment_list[2]}}%">
+                                            <span class="good"><i class="fa-solid fa-face-smile-beam"></i> {{sentiment_list[2]}}%</span>
+
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width: {{sentiment_list2[2]}}%">
+                                            <span class="bad"><i class="fa-solid fa-face-sad-tear"></i>{{sentiment_list2[2]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+                                 <li class="mb-4">
+                                    <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[3]}}%">
+                                        <span class="good"><i class="fa-solid fa-face-smile-beam"></i> {{sentiment_list[3]}}%</span>
+
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width: {{sentiment_list2[3]}}%">
+                                            <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> {{sentiment_list2[3]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+                                <li class="mb-4">
+                                    <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[4]}}%">
+                                                <span class="good"><i class="fa-solid fa-face-smile-beam"></i> {{sentiment_list[4]}}%</span>
+
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[4]}}%">
+                                            <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> {{sentiment_list2[4]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+    <!--                             <li class="reli"> <span class="good"><i class="fa-solid fa-face-smile-beam"></i> 90%</span> like this song</li>
+                                <li class="reli"> <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> 10%</span> like this song</li>
+                                <li class="reli"> <span class="neut"><i class="fa-solid fa-face-meh"></i> 50%</span> like this song</li> -->
+                            </ul>
+                        </div>
+                                <div class="first-section mb-5" id="main">
+                    <!-- Post preview-->
+                    <center>
+                    <div class="row" id="more">
+                        <div class="col">
+                            <ul class="recommend mt-2 me-4">
+                                <li class="reli">"{{music_list[5]}}" - {{artist_list[5]}}</li>
+                                <li class="reli">"{{music_list[6]}}" - {{artist_list[6]}}</li>
+                                <li class="reli">"{{music_list[7]}}" - {{artist_list[7]}}</li>
+<!--                                 <li class="reli">"{{music_list[0]}}" - Ninth Title</li>
+                                <li class="reli">"{{music_list[0]}}" - Tenth Title</li> -->
+<!--                                 <li class="reli" id="more">Sixth Artist - Sixth Title</li>
+                                <li class="reli" id="more">Seventh Artist - Seventh Title</li>
+                                <li class="reli" id="more">Eighth Artist - Eighth Title</li>
+                                <li class="reli" id="more">Nineth Artist - Nineth Title</li>
+                                <li class="reli" id="more">Tenth Artist - Tenth Title</li> -->
+                            </ul>
+
+
+                        </div>
+                        <div class="col">
+                            <ul class="recommend mt-4 me-4">
+                                <li class="mb-4">
+                                    <div class="progress">
+
+                                          <div class="progress-bar progress-bar like-c first" role="progressbar" style="width: {{sentiment_list[5]}}%">
+                                            <span class="good"><i class="fa-solid fa-face-smile-beam"></i> {{sentiment_list[5]}}%</span>
+
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c first" role="progressbar" style="width:{{sentiment_list2[5]}}%">
+                                            <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> {{sentiment_list2[5]}}%/span>
+                                          </div>
+                                    </div>
+                                </li>
+                                <li class="mb-4">
+                                    <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[6]}}%">
+                                            <span class="good"><i class="fa-solid fa-face-smile-beam"></i> {{sentiment_list[6]}}%</span>
+
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[6]}}%">
+                                            <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> {{sentiment_list2[6]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+                                <li class="mb-4">
+                                    <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[7]}}%">
+                                    <span class="good"><i class="fa-solid fa-face-smile-beam"></i> {{sentiment_list[7]}}%</span>
+
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[7]}}%">
+                                            <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> {{sentiment_list2[7]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+                                 <!-- <li class="mb-4">
+                                    <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:30%">
+                                                                                        <span class="good"><i class="fa-solid fa-face-smile-beam"></i> 30%</span>
+
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:70%">
+                                            <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> 70%</span>
+                                          </div>
+                                    </div>
+                                </li>
+                                <li class="mb-4">
+                                    <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:50%">
+                                                                                        <span class="good"><i class="fa-solid fa-face-smile-beam"></i> 50%</span>
+
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:50%">
+                                            <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> 50%</span>
+                                          </div>
+                                    </div>
+                                </li> -->
+    <!--                             <li class="reli"> <span class="good"><i class="fa-solid fa-face-smile-beam"></i> 90%</span> like this song</li>
+                                <li class="reli"> <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> 10%</span> like this song</li>
+                                <li class="reli"> <span class="neut"><i class="fa-solid fa-face-meh"></i> 50%</span> like this song</li> -->
+                            </ul>
+                        </div>
+
+
+                    </div>
+<button onclick="myFunction()"class="btn-search3" id="myBtn">Discover More</button>
+
+                    </center>
+
+        </div>
+        <hr>
+                        <div class="first-section mb-5" id="main">
+                    <!-- Post preview-->
+<!--                     <center>
+                    <h2 class="h2-title mt-5"><span><i class="fa-solid fa-compact-disc"></i></span>  Search by Artist and Title</h2>
+                    </center>
+                    <p class="mx-5">See how other people feel about a certain piece of music. By clicking on the “Search” button, you will be initiating sentiment analysis on all Reddit posts that include the artist and the title of your choice. </p>
+                    <div class="inner-form">
+                      <div class="input-field first-wrap">
+                        <input id="artist" type="text" placeholder="Artist" />
+                      </div>
+                      <div class="input-field second-wrap">
+                        <input id="title" type="text" placeholder="Title" />
+                      </div>
+                      <div class="input-field third-wrap">
+                        <a href="result.html"><button class="btn-search" type="button">Search</button></a>
+                      </div>
+                    </div> -->
+                    <center>
+
+                </center>
+        </div>
+<!--         <hr> -->
+        <center><h2 class="h2-title mb-5"><i class="fa-solid fa-signal"></i> Statistics</h2></center>
+        <div class="second-section mb-5">
+            <div class="container">
+                  <div class="row">
+                    <div class="col">
+                      <div class="card music90">
+                          <div class="card-body">
+                            <center>
+                            <h6 class="bar-t">Composition of Moods in Music by Year Re-
+leased</h6>
+                            </center>
+                            <canvas id="myChart"></canvas>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                      <div class="card music20">
+                          <div class="card-body">
+                            <center>
+                            <h6 class="bar-t">Reddit Sentiment on Music of Different Moods 
+by Year Released</h6>
+                        </center>
+                            <canvas id="myChart20"></canvas>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+        </div>
+<!--                 <div class="second-section mb-5">
+            <div class="container">
+                  <div class="row">
+                    <div class="col">
+                      <div class="card music21">
+                          <div class="card-body">
+                            <center>
+                            <h3>2010s</h3>
+                            </center>
+                            <canvas id="myChart21"></canvas>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                      <div class="card music22">
+                          <div class="card-body">
+                            <center>
+                            <h3>2020s</h3>
+                        </center>
+                            <canvas id="myChart22"></canvas>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+        </div> -->
+
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Daniel Yoo (Creator of “Feel From Music”)</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script>
+        function mood(){
+            var span = document.querySelectorAll('.span-mood');
+        
+      span.forEach(function(item) {
+        // iterate and add event lstener to each of them
+        item.addEventListener('click', function(elem) {
+
+          let getElemWithClass = document.querySelector('.active');
+          if (getElemWithClass !== null) {
+            getElemWithClass.classList.remove('active');
+          }
+          //add the active class to the element from which click event triggered
+          item.classList.add('active')
+
+        })
+      });
+          }
+                  function genre(){
+            var span = document.querySelectorAll('.span-genre');
+
+      span.forEach(function(item) {
+        // iterate and add event lstener to each of them
+        item.addEventListener('click', function(elem) {
+
+          let getElemWithClass = document.querySelector('.active2');
+          if (getElemWithClass !== null) {
+            getElemWithClass.classList.remove('active2');
+          }
+          //add the active class to the element from which click event triggered
+          item.classList.add('active2')
+
+        })
+      });
+          }
+      mood();
+      genre();
+
+        </script>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../../static/js/scripts.js"></script>
+    </body>
+</html>
