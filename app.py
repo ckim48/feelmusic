@@ -10,7 +10,7 @@ def index():
 
 @app.route('/result/<a>/<b>', methods=['POST', 'GET']) 
 def result(a,b):
-	data = pd.read_csv("static/preprocessed.csv")
+	data = pd.read_csv("home/ckim48/mysite/static/preprocessed.csv")
 	data['date'] = pd.to_datetime(data['date'])
 
 	if a == "happy":
