@@ -1,9 +1,22 @@
-from flask import Flask, render_template,redirect, url_for,flash
+from flask import Flask, render_template,redirect, url_for,flash,request
 import pandas as pd
 import datetime as dt
 import sys
-app = Flask(__name__)
+import asyncio
+import tkinter as tk
+import sys
+from io import StringIO
+from collections import defaultdict
+import string
+import time
 
+from nlp_runner2 import nlp_runner
+
+app = Flask(__name__)
+output = {}
+A = []
+chk={}
+AA = []
 @app.route('/', methods=['POST', 'GET']) 
 def index():
 	return render_template('index.html')
@@ -79,5 +92,67 @@ def result(a,b):
 		sentiment_list2.append(100-i)
 	return render_template('result.html',mood=a,years=b,dic=dic,artist_list=artist_list,music_list=music_list,sentiment_list=sentiment_list,sentiment_list2=sentiment_list2)
 
+@app.route('/result2', methods=['POST', 'GET'])
+def result2():
+	res = []
+	artist = request.form.get('artist')
+	title = request.form.get('title')
+
+	output = handle_reddit_crawler(artist,title)
+	# global A
+	# A = list(output.keys())
+	# for i in range(len(A)):
+	# 	a = showComments(A[i])
+	# 	res.append(a)
+
+	# print("AAAAAAAAAAAAAAAA:",a,file=sys.stderr)
+	return render_template('result2.html',artist=artist,title=title,output=output,len=len(output))
+
+
+def handle_reddit_crawler(a,b):
+    # IMPORTANT  main.py __main__ goes here
+    print("handling reddit crawler.......processing...")
+    global output
+
+    output = nlp_runner(a, b).main()
+    
+    print("about to return..")
+
+    return output
+
+def showComments(key):
+    i = 0
+    chk[key] = 1
+    global AA
+    for m, j in enumerate(output[key][1]):
+        sentence = output[key][1][m].split()
+
+        psum = [0] * (len(sentence)+5)
+        psum[0] = len(sentence[0]) + 17
+        for k in range(1, len(sentence)):
+            psum[k] += psum[k-1] + len(sentence[k]) + 17
+
+        index_label = str(m+1)
+
+        AA.append(index_label)
+
+        for wordIndex in range(0, len(sentence)):
+            handled_spacing = 0
+            if wordIndex == 0:
+                handled_spacing = 200
+            else:
+                handled_spacing = 200 + psum[wordIndex-1]*2.8
+
+            if(wordIndex not in output[key][2][m]):
+                text = sentence[wordIndex]
+            else:
+                if output[key][0] < 0.3:
+                    text = sentence[wordIndex]
+                else:
+                    text = sentence[wordIndex]
+        AA.append(text)
+        return AA
+
+        i += 1
 if __name__=="__main__":
   app.run(debug=True)
