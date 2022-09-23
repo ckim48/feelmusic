@@ -25,7 +25,7 @@ class nlp_runner:
         self.topic = topic
         self.keyword = keyword
 
-        self.sw_f = open("sw.json")
+        self.sw_f = open("/home/ckim48/mysite/sw.json")
         self.sw = set(stopwords.words('english') + json.load(self.sw_f))
         self.sentiment = SentimentIntensityAnalyzer()
         self.tokenizer = RegexpTokenizer("\s+", gaps=True)
@@ -412,15 +412,15 @@ class nlp_runner:
 
         print("Prawling Data")
         postDict_list, fdist = self.makePostList(topic)
-        with open("postDict_list.json", "w") as outfile:
+        with open("/home/ckim48/mysite/postDict_list.json", "w") as outfile:
             json.dump(postDict_list, outfile)
-        with open("fdist.json", "w") as outfile:
+        with open("/home/ckim48/mysite/fdist.json", "w") as outfile:
             json.dump(fdist, outfile)
 
-        f = open("postDict_list.json", "r")
+        f = open("/home/ckim48/mysite/postDict_list.json", "r")
         postDict_list = json.load(f)
 
-        f = open("fdist.json", "r")
+        f = open("/home/ckim48/mysite/fdist.json", "r")
         temp_fdist = json.load(f)
         fdist = nltk.FreqDist()
         for word in temp_fdist:
@@ -428,21 +428,21 @@ class nlp_runner:
 
         print("making pos_cfdist")
         pos_cfdist = self.make_pos_cfdist(postDict_list)
-        with open("pos_cfdist.json", "w") as outfile:
+        with open("/home/ckim48/mysite/pos_cfdist.json", "w") as outfile:
             json.dump(pos_cfdist, outfile)
 
         print("making ne_list")
         ne_list = self.makeNE(postDict_list, fdist)
-        with open("ne_list.json", "w") as outfile:
+        with open("/home/ckim48/mysite/ne_list.json", "w") as outfile:
             json.dump(ne_list, outfile)
 
-        f = open("pos_cfdist.json", "r")
+        f = open("/home/ckim48/mysite/pos_cfdist.json", "r")
         pos_cfdist = json.load(f)
 
-        f = open("ne_list.json", "r")
+        f = open("/home/ckim48/mysite/ne_list.json", "r")
         ne_list = json.load(f)
 
-        f = open("buzzwords.json")
+        f = open("/home/ckim48/mysite/buzzwords.json")
         buzzwords = json.load(f)
         top_words = [word for word,
                      freq in fdist.most_common(int(len(fdist) * 0.3))]
@@ -500,21 +500,21 @@ class nlp_runner:
 
         scores = sorted(scores, key=lambda x: x[1], reverse=True)
 
-        with open("ne_defs.json", "w") as outfile:
+        with open("/home/ckim48/mysite/ne_defs.json", "w") as outfile:
             json.dump(ne_defs, outfile)
-        with open("scores.json", "w") as outfile:
+        with open("/home/ckim48/mysite/scores.json", "w") as outfile:
             json.dump(scores, outfile)
 
-        f = open("postDict_list.json", "r")
+        f = open("/home/ckim48/mysite/postDict_list.json", "r")
         postDict_list = json.load(f)
 
-        f = open("fdist.json", "r")
+        f = open("/home/ckim48/mysite/fdist.json", "r")
         temp_fdist = json.load(f)
         fdist = nltk.FreqDist()
         for word in temp_fdist:
             fdist[word] = temp_fdist[word]
 
-        f = open("pos_cfdist.json", )
+        f = open("/home/ckim48/mysite/pos_cfdist.json", )
         temp_pos_cfdist = json.load(f)
         pos_cfdist = nltk.ConditionalFreqDist()
 
@@ -523,16 +523,16 @@ class nlp_runner:
             for entry in temp_pos_cfdist[word]:
                 pos_cfdist[word][entry] = temp_pos_cfdist[word][entry]
 
-        f = open("ne_list.json", "r")
+        f = open("/home/ckim48/mysite/ne_list.json", "r")
         ne_list = json.load(f)
 
-        f = open("buzzwords.json", "r")
+        f = open("/home/ckim48/mysite/buzzwords.json", "r")
         buzzwords = json.load(f)
 
-        f = open("scores.json", "r")
+        f = open("/home/ckim48/mysite/scores.json", "r")
         scores = json.load(f)
 
-        f = open("ne_defs.json", "r")
+        f = open("/home/ckim48/mysite/ne_defs.json", "r")
         ne_defs = json.load(f)
 
         keywords_dict = self.listTwentyWords(scores, keyword, topic)
@@ -541,10 +541,10 @@ class nlp_runner:
         keydict_list, key_fdist, total_pscore = self.keyword_comments(
             postDict_list, keywords)
         print(keywords)
-        with open("keydict_list.json", "w") as outfile:
+        with open("/home/ckim48/mysite/keydict_list.json", "w") as outfile:
             json.dump(keydict_list, outfile)
 
-        with open("key_fdist.json", "w") as outfile:
+        with open("/home/ckim48/mysite/key_fdist.json", "w") as outfile:
             json.dump(key_fdist, outfile)
 
         print(total_pscore)
