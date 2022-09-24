@@ -11675,6 +11675,22 @@ h3{
 }
 
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+
+.first-s{
+  margin-left: 120px;
+  margin-right:  120px;
+}
+.first-s2{
+    margin-left: 22%;
+  margin-right:  22%
+}
+.first-s3{
+  display: inline;
+}
+/*.progress{
+  margin-left:  200px;
+  margin-right:  200px;
+}*/
 @media screen and (max-width: 1000px) {
   form legend {
     font-size: 40px;
@@ -11719,27 +11735,13 @@ h3{
   margin: 0px;
 }
 .first-s{
-  margin: 0;
+  margin: 0px;
+}
 }
 .intro-t{
   font-size: 9.5px;
 }
 }
-.first-s{
-  margin-left: 120px;
-  margin-right:  120px;
-}
-.first-s2{
-    margin-left: 22%;
-  margin-right:  22%
-}
-.first-s3{
-  display: inline;
-}
-/*.progress{
-  margin-left:  200px;
-  margin-right:  200px;
-}*/
 @media (min-width: 992px) {
   .post-preview > a > .post-title {
     font-size: 2.25rem;
