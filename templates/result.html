@@ -65,6 +65,7 @@ music is ordered by popularity, from highest to lowest, which is calculated on s
 on various types of data collected from the daily activities of Spotify’s users." class="info-btn"><i class="fa-regular fa-circle-question"></i></a>
 
 </h2>
+            <div class="first-s">
                         <p class="result-w mt-4">
                             
                             Sentiment analysis was conducted on every music in the list by applying natural language processing
@@ -73,14 +74,72 @@ music. The percentage value represents the ratio of reddit posts demonstrating p
 against those demonstrating negative sentiment. 
 
                         </p>
-                    <div class="row">
-                        <div class="col">
+
+                                <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:50%">
+                                           <span>  Peole who like the music</span>
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:50%">
+                                            <span>  Peole who dislike the music</span>
+                                          </div>
+                                    </div>
+                    <div class="row first-s2">
                             <ul class="recommend mt-2 me-4">
-                                <li class="reli">"{{music_list[0]}}" - {{artist_list[0]}}</li>
-                                <li class="reli">"{{music_list[1]}}" - {{artist_list[1]}}</li>
-                                <li class="reli">"{{music_list[2]}}" - {{artist_list[2]}}</li>
-                                <li class="reli">"{{music_list[3]}}" - {{artist_list[3]}}</li>
-                                <li class="reli">"{{music_list[4]}}" - {{artist_list[4]}}</li>
+                                <li class="reli mt-4 mb-4">
+                                   "{{music_list[0]}}" - {{artist_list[0]}}
+                                    <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[0]}}%">
+                                           <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[0]}}%</span>
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[0]}}%">
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[0]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+                                <li class="reli mb-4">
+                                    "{{music_list[1]}}" - {{artist_list[1]}}
+                                    <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[1]}}%">
+                                           <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[1]}}%</span>
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[1]}}%">
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[1]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+                                <li class="reli mb-4">
+                                    "{{music_list[2]}}" - {{artist_list[2]}}
+                                                                        <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[2]}}%">
+                                           <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[2]}}%</span>
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[2]}}%">
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[2]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+                                <li class="reli mb-4">
+                                    "{{music_list[3]}}" - {{artist_list[3]}}
+                                                                        <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[3]}}%">
+                                           <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[3]}}%</span>
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[3]}}%">
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[3]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+                                <li class="reli mb-4">
+                                "{{music_list[4]}}" - {{artist_list[4]}}
+                                    <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[4]}}%">
+                                           <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[4]}}%</span>
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[4]}}%">
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[4]}}%</span>
+                                          </div>
+                                    </div>
+                            </li>
 <!--                                 <li class="reli" id="more">Sixth Artist - Sixth Title</li>
                                 <li class="reli" id="more">Seventh Artist - Seventh Title</li>
                                 <li class="reli" id="more">Eighth Artist - Eighth Title</li>
@@ -89,71 +148,179 @@ against those demonstrating negative sentiment.
                             </ul>
 
 
-                        </div>
-                        <div class="col">
+                       
+ <!--                        <div class="col">
                             <ul class="recommend mt-4 me-4">
                                 <li class="mb-4">
                                     <div class="progress">
-
                                           <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[0]}}%">
-                                            <span class="good"><i class="fa-solid fa-face-smile-beam"></i> {{sentiment_list[0]}}%</span>
+                                           <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[0]}}%</span>
                                           </div>
                                           <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[0]}}%">
-                                            <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> {{sentiment_list2[0]}}%</span>
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[0]}}%</span>
                                           </div>
                                     </div>
                                 </li>
                                 <li class="mb-4">
                                     <div class="progress">
                                           <div class="progress-bar progress-bar like-c" role="progressbar" style="width: {{sentiment_list[1]}}%">
-                                            <span class="good"><i class="fa-solid fa-face-smile-beam"></i> {{sentiment_list[1]}}%</span>
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[1]}}%</span>
 
                                           </div>
                                           <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width: {{sentiment_list2[1]}}%">
-                                            <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> {{sentiment_list2[1]}}%</span>
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[1]}}%</span>
                                           </div>
                                     </div>
                                 </li>
                                 <li class="mb-4">
                                     <div class="progress">
                                           <div class="progress-bar progress-bar like-c" role="progressbar" style="width: {{sentiment_list[2]}}%">
-                                            <span class="good"><i class="fa-solid fa-face-smile-beam"></i> {{sentiment_list[2]}}%</span>
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i>  {{sentiment_list[2]}}%</span>
 
                                           </div>
                                           <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width: {{sentiment_list2[2]}}%">
-                                            <span class="bad"><i class="fa-solid fa-face-sad-tear"></i>{{sentiment_list2[2]}}%</span>
+                                           <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[2]}}%</span>
                                           </div>
                                     </div>
                                 </li>
                                  <li class="mb-4">
                                     <div class="progress">
                                           <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[3]}}%">
-                                        <span class="good"><i class="fa-solid fa-face-smile-beam"></i> {{sentiment_list[3]}}%</span>
+                                        <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[3]}}%</span>
 
                                           </div>
                                           <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width: {{sentiment_list2[3]}}%">
-                                            <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> {{sentiment_list2[3]}}%</span>
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[3]}}%</span>
                                           </div>
                                     </div>
                                 </li>
                                 <li class="mb-4">
                                     <div class="progress">
                                           <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[4]}}%">
-                                                <span class="good"><i class="fa-solid fa-face-smile-beam"></i> {{sentiment_list[4]}}%</span>
+                                                <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[4]}}%</span>
 
                                           </div>
                                           <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[4]}}%">
-                                            <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> {{sentiment_list2[4]}}%</span>
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[4]}}%</span>
                                           </div>
                                     </div>
                                 </li>
-    <!--                             <li class="reli"> <span class="good"><i class="fa-solid fa-face-smile-beam"></i> 90%</span> like this song</li>
+                                 <li class="reli"> <span class="good"><i class="fa-solid fa-face-smile-beam"></i> 90%</span> like this song</li>
                                 <li class="reli"> <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> 10%</span> like this song</li>
                                 <li class="reli"> <span class="neut"><i class="fa-solid fa-face-meh"></i> 50%</span> like this song</li> -->
+                            <!-- </ul> -->
+                        </div> 
+                </div>
+                <div class="first-s">
+
+                    <div class="row first-s2" id="more">
+                            <ul class="recommend mt-2 me-4">
+                                <li class="reli mt-4 mb-4">
+                                   "{{music_list[5]}}" - {{artist_list[5]}}
+                                    <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[5]}}%">
+                                           <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[5]}}%</span>
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[5]}}%">
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[5]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+                                <li class="reli mb-4">
+                                    "{{music_list[6]}}" - {{artist_list[6]}}
+                                    <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[6]}}%">
+                                           <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[6]}}%</span>
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[6]}}%">
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[6]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+                                <li class="reli mb-4">
+                                    "{{music_list[7]}}" - {{artist_list[7]}}
+                                                                        <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[7]}}%">
+                                           <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[7]}}%</span>
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[7]}}%">
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[7]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+<!--                                 <li class="reli" id="more">Sixth Artist - Sixth Title</li>
+                                <li class="reli" id="more">Seventh Artist - Seventh Title</li>
+                                <li class="reli" id="more">Eighth Artist - Eighth Title</li>
+                                <li class="reli" id="more">Nineth Artist - Nineth Title</li>
+                                <li class="reli" id="more">Tenth Artist - Tenth Title</li> -->
                             </ul>
-                        </div>
-                                <div class="first-section mb-5" id="main">
-                    <!-- Post preview-->
+
+
+                       
+ <!--                        <div class="col">
+                            <ul class="recommend mt-4 me-4">
+                                <li class="mb-4">
+                                    <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[0]}}%">
+                                           <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[0]}}%</span>
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[0]}}%">
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[0]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+                                <li class="mb-4">
+                                    <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width: {{sentiment_list[1]}}%">
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[1]}}%</span>
+
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width: {{sentiment_list2[1]}}%">
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[1]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+                                <li class="mb-4">
+                                    <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width: {{sentiment_list[2]}}%">
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i>  {{sentiment_list[2]}}%</span>
+
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width: {{sentiment_list2[2]}}%">
+                                           <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[2]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+                                 <li class="mb-4">
+                                    <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[3]}}%">
+                                        <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[3]}}%</span>
+
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width: {{sentiment_list2[3]}}%">
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[3]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+                                <li class="mb-4">
+                                    <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[4]}}%">
+                                                <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[4]}}%</span>
+
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[4]}}%">
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[4]}}%</span>
+                                          </div>
+                                    </div>
+                                </li>
+                                 <li class="reli"> <span class="good"><i class="fa-solid fa-face-smile-beam"></i> 90%</span> like this song</li>
+                                <li class="reli"> <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> 10%</span> like this song</li>
+                                <li class="reli"> <span class="neut"><i class="fa-solid fa-face-meh"></i> 50%</span> like this song</li> -->
+                            <!-- </ul> -->
+                        </div> 
+                </div>
+<!--                                 <div class="first-section mb-5" id="main">
+
                     <center>
                     <div class="row" id="more">
                         <div class="col">
@@ -161,53 +328,53 @@ against those demonstrating negative sentiment.
                                 <li class="reli">"{{music_list[5]}}" - {{artist_list[5]}}</li>
                                 <li class="reli">"{{music_list[6]}}" - {{artist_list[6]}}</li>
                                 <li class="reli">"{{music_list[7]}}" - {{artist_list[7]}}</li>
-<!--                                 <li class="reli">"{{music_list[0]}}" - Ninth Title</li>
-                                <li class="reli">"{{music_list[0]}}" - Tenth Title</li> -->
-<!--                                 <li class="reli" id="more">Sixth Artist - Sixth Title</li>
+                                <li class="reli">"{{music_list[0]}}" - Ninth Title</li>
+                                <li class="reli">"{{music_list[0]}}" - Tenth Title</li>
+                                 <li class="reli" id="more">Sixth Artist - Sixth Title</li>
                                 <li class="reli" id="more">Seventh Artist - Seventh Title</li>
                                 <li class="reli" id="more">Eighth Artist - Eighth Title</li>
                                 <li class="reli" id="more">Nineth Artist - Nineth Title</li>
-                                <li class="reli" id="more">Tenth Artist - Tenth Title</li> -->
+                                <li class="reli" id="more">Tenth Artist - Tenth Title</li> 
                             </ul>
 
 
-                        </div>
-                        <div class="col">
+                        </div>-->
+<!--                         <div class="col">
                             <ul class="recommend mt-4 me-4">
                                 <li class="mb-4">
                                     <div class="progress">
 
                                           <div class="progress-bar progress-bar like-c first" role="progressbar" style="width: {{sentiment_list[5]}}%">
-                                            <span class="good"><i class="fa-solid fa-face-smile-beam"></i> {{sentiment_list[5]}}%</span>
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[5]}}%</span>
 
                                           </div>
                                           <div class="progress-bar progress-bar dlike-c first" role="progressbar" style="width:{{sentiment_list2[5]}}%">
-                                            <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> {{sentiment_list2[5]}}%</span>
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[5]}}%</span>
                                           </div>
                                     </div>
                                 </li>
                                 <li class="mb-4">
                                     <div class="progress">
                                           <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[6]}}%">
-                                            <span class="good"><i class="fa-solid fa-face-smile-beam"></i> {{sentiment_list[6]}}%</span>
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i>  {{sentiment_list[6]}}%</span>
 
                                           </div>
                                           <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[6]}}%">
-                                            <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> {{sentiment_list2[6]}}%</span>
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[6]}}%</span>
                                           </div>
                                     </div>
                                 </li>
                                 <li class="mb-4">
                                     <div class="progress">
                                           <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[7]}}%">
-                                    <span class="good"><i class="fa-solid fa-face-smile-beam"></i> {{sentiment_list[7]}}%</span>
+                                    <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {sentiment_list[7]}}%</span>
 
                                           </div>
                                           <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[7]}}%">
-                                            <span class="bad"><i class="fa-solid fa-face-sad-tear"></i> {{sentiment_list2[7]}}%</span>
+                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam bad mbbar2"></i> {{sentiment_list2[7]}}%</span>
                                           </div>
                                     </div>
-                                </li>
+                                </li> -->
                                  <!-- <li class="mb-4">
                                     <div class="progress">
                                           <div class="progress-bar progress-bar like-c" role="progressbar" style="width:30%">
@@ -238,13 +405,14 @@ against those demonstrating negative sentiment.
 
 
                     </div>
-<button onclick="myFunction()"class="btn-search3" id="myBtn">Discover More</button>
-
+                    <center>
+<button onclick="myFunction()"class="btn btn-search3" id="myBtn">Discover More</button>
                     </center>
 
         </div>
+    </div>
         <hr>
-                        <div class="first-section mb-5" id="main">
+            <div class="first-section mb-5" id="main">
                     <!-- Post preview-->
                     <center>
                     <h2 class="h2-title mt-5"><span><i class="fa-solid fa-compact-disc"></i></span>  Search by Artist and Title</h2>
@@ -256,19 +424,18 @@ against those demonstrating negative sentiment.
                     </div> -->
                     <form action = "../../result2" method="POST">
                         <div class="inner-form">
-                          <div class="input-field first-wrap">
-                            <input id="artist" type="text" placeholder="Artist" name='artist' />
-                          </div>
-                          <div class="input-field second-wrap">
-                            <input id="title" type="text" placeholder="Title" name='title' />
-                          </div>
-                          <div class="input-field third-wrap">
-                            <input class="btn-search" value="Search" type="submit"></input>
+                              <div class="input-field first-wrap">
+                                <input id="artist" type="text" placeholder="Artist" name='artist' />
+                              </div>
+                              <div class="input-field second-wrap">
+                                <input id="title" type="text" placeholder="Title" name='title' />
+                              </div>
+                              <div class="input-field third-wrap">
+                                <input class="btn-search" value="Search" type="submit"></input>
+                            </div>
                         </div>
                     </form>
-                    <center>
-
-                </center>
+            </div>
         </div>
 <!--         <hr> -->
         <center><h2 class="h2-title mb-5"><i class="fa-solid fa-signal"></i> Statistics</h2></center>
