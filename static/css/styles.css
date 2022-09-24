@@ -11524,7 +11524,6 @@ header.masthead2 .site-heading .h1 {
 
 .btn-search3{
   height: 100%;
-  width: 10%;
   background: #786d6d;
   white-space: nowrap;
   border-radius: 20px;
@@ -11675,6 +11674,67 @@ h3{
   list-style: none;
 }
 
+/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+@media screen and (max-width: 1000px) {
+  form legend {
+    font-size: 40px;
+    margin-bottom: 40px;
+  }
+  form .inner-form {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding: 20px;
+  }
+  form .inner-form .input-field {
+    margin-right: 0;
+  }
+  form .inner-form .input-field input {
+    padding: 5px 15px;
+    font-size: 16px;
+  }
+  form .inner-form .input-field.first-wrap {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  form .inner-form .input-field.second-wrap {
+    width: calc(50% - 10px);
+    min-width: auto;
+  }
+  form .inner-form .input-field.third-wrap {
+    width: calc(50% - 10px);
+  }
+  form .inner-form .input-field.third-wrap .btn-search {
+    font-size: 16px;
+  }
+  .mbbar{
+    display: none;
+  }
+  .mbbar2{
+    display: block;
+  }
+  .reli{
+    display: inline-block;
+  }
+.progress{
+  margin: 0px;
+}
+.first-s{
+  padding-left: 50px;
+  padding-right:  50px;
+}
+}
+.first-s{
+  padding-left: 120px;
+  padding-right:  120px;
+}
+.first-s2{
+    padding-left: 27%;
+  padding-right:  27%
+}
+/*.progress{
+  margin-left:  200px;
+  margin-right:  200px;
+}*/
 @media (min-width: 992px) {
   .post-preview > a > .post-title {
     font-size: 2.25rem;
