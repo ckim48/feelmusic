@@ -65,6 +65,7 @@ music is ordered by popularity, from highest to lowest, which is calculated on s
 on various types of data collected from the daily activities of Spotify’s users." class="info-btn"><i class="fa-regular fa-circle-question"></i></a>
 
 </h2>
+<center>
             <div class="first-s">
                         <p class="result-w mt-4">
                             
@@ -77,18 +78,18 @@ against those demonstrating negative sentiment.
 
                                 <div class="progress">
                                           <div class="progress-bar progress-bar like-c" role="progressbar" style="width:50%">
-                                           <span>  Peole who like the music</span>
+                                           <span class="intro-t">  Peole who like the music</span>
                                           </div>
                                           <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:50%">
-                                            <span>  Peole who dislike the music</span>
+                                            <span class="intro-t">  Peole who dislike the music</span>
                                           </div>
                                     </div>
-                    <div class="row first-s2">
+                    <div class="row">
                             <ul class="recommend mt-2 me-4">
                                 <li class="reli mt-4 mb-4">
-                                   "{{music_list[0]}}" - {{artist_list[0]}}
-                                    <div class="progress">
-                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[0]}}%">
+                                   <p class="first-s3">{{music_list[0]}}" - {{artist_list[0]}} </p>
+                                    <div class="progress first-s2">
+                                          <div class="progress-bar progress-bar like-c " role="progressbar" style="width:{{sentiment_list[0]}}%">
                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[0]}}%</span>
                                           </div>
                                           <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{sentiment_list2[0]}}%">
@@ -98,7 +99,7 @@ against those demonstrating negative sentiment.
                                 </li>
                                 <li class="reli mb-4">
                                     "{{music_list[1]}}" - {{artist_list[1]}}
-                                    <div class="progress">
+                                    <div class="progress first-s2">
                                           <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[1]}}%">
                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[1]}}%</span>
                                           </div>
@@ -109,7 +110,7 @@ against those demonstrating negative sentiment.
                                 </li>
                                 <li class="reli mb-4">
                                     "{{music_list[2]}}" - {{artist_list[2]}}
-                                                                        <div class="progress">
+                                                                        <div class="progress first-s2">
                                           <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[2]}}%">
                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[2]}}%</span>
                                           </div>
@@ -120,7 +121,7 @@ against those demonstrating negative sentiment.
                                 </li>
                                 <li class="reli mb-4">
                                     "{{music_list[3]}}" - {{artist_list[3]}}
-                                                                        <div class="progress">
+                                                                        <div class="progress first-s2">
                                           <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[3]}}%">
                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[3]}}%</span>
                                           </div>
@@ -131,7 +132,7 @@ against those demonstrating negative sentiment.
                                 </li>
                                 <li class="reli mb-4">
                                 "{{music_list[4]}}" - {{artist_list[4]}}
-                                    <div class="progress">
+                                    <div class="progress first-s2">
                                           <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[4]}}%">
                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[4]}}%</span>
                                           </div>
@@ -213,11 +214,11 @@ against those demonstrating negative sentiment.
                 </div>
                 <div class="first-s">
 
-                    <div class="row first-s2" id="more">
+                    <div class="row" id="more">
                             <ul class="recommend mt-2 me-4">
                                 <li class="reli mt-4 mb-4">
                                    "{{music_list[5]}}" - {{artist_list[5]}}
-                                    <div class="progress">
+                                    <div class="progress first-s2">
                                           <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[5]}}%">
                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[5]}}%</span>
                                           </div>
@@ -228,7 +229,7 @@ against those demonstrating negative sentiment.
                                 </li>
                                 <li class="reli mb-4">
                                     "{{music_list[6]}}" - {{artist_list[6]}}
-                                    <div class="progress">
+                                    <div class="progress first-s2">
                                           <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[6]}}%">
                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[6]}}%</span>
                                           </div>
@@ -239,7 +240,7 @@ against those demonstrating negative sentiment.
                                 </li>
                                 <li class="reli mb-4">
                                     "{{music_list[7]}}" - {{artist_list[7]}}
-                                                                        <div class="progress">
+                                                                        <div class="progress first-s2">
                                           <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{sentiment_list[7]}}%">
                                            <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{sentiment_list[7]}}%</span>
                                           </div>
@@ -408,7 +409,7 @@ against those demonstrating negative sentiment.
                     <center>
 <button onclick="myFunction()"class="btn btn-search3" id="myBtn">Discover More</button>
                     </center>
-
+</center>
         </div>
     </div>
         <hr>
