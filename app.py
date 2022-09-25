@@ -116,7 +116,7 @@ def result2():
 	# 	res.append(a)
 
 	# print("AAAAAAAAAAAAAAAA:",a,file=sys.stderr)
-	return render_template('result2.html',artist=artist,title=title,output=output,len=len(output),content_lst=content_lst,len=len(content_lst))
+	return render_template('result2.html',artist=artist,title=title,output=output,len=len(output),content_lst=content_lst,len2=len(content_lst))
 
 
 def handle_reddit_crawler(a,b):
