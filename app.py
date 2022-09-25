@@ -108,7 +108,7 @@ def result2():
 	content_lst.append(data[0]["comments"])
 	content_lst2 = []
 	for i in (0,len(content_lst)):
-		content_lst2.append(content_lst["content"])
+		content_lst2.append(content_lst[i]["content"])
 
 	# global A
 	# A = list(output.keys())
