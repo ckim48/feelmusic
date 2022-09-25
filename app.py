@@ -105,9 +105,9 @@ def result2():
 			#mock
 	content_lst = []
 	for i in range(0,len(data)):
-		if data[i]["content"] != "":
+		if data[i]["title"] != "":
 		
-			content_lst.append(data[i]["content"])
+			content_lst.append(data[i]["title"])
 	print(content_lst)
 	# global A
 	# A = list(output.keys())
