@@ -102,7 +102,7 @@ def result2():
 
 	with open('keydict_list.json') as json_file:
 		data = json.load(json_file)
-
+		#mock
 	content_lst = []
 	for i in data:
 		content_lst.append(data[i]["content"])
