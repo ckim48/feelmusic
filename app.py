@@ -100,16 +100,15 @@ def result2():
 
 	output = handle_reddit_crawler(artist,title)
 
-	with open('/home/ckim48/mysite/keydict_list.json') as json_file:
+	with open('keydict_list.json') as json_file:
 		data = json.load(json_file)
-		#mock
+			#mock
 	content_lst = []
-
-	content_lst.append(data[0]["comments"])
-	content_lst2 = []
-	for i in (0,len(content_lst)):
-		content_lst2.append(content_lst[i]["content"])
-
+	for i in range(0,len(data)):
+		if data[i]["content"] != "":
+		
+			content_lst.append(data[i]["content"])
+	print(content_lst)
 	# global A
 	# A = list(output.keys())
 	# for i in range(len(A)):
