@@ -42,6 +42,8 @@ class nlp_runner:
                              user_agent='chaec0803')
         subreddit = reddit.subreddit(topic)
         hot_python = subreddit.hot(limit=25)
+        if len(hot_python) == 0:
+            return list(),list()
         subreddit_objs = [submission for submission in hot_python]
         posts = list()
         fdist = nltk.FreqDist()
