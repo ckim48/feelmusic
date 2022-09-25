@@ -104,8 +104,11 @@ def result2():
 		data = json.load(json_file)
 		#mock
 	content_lst = []
-	for i in range(len(data)):
-		content_lst.append(data[i]["content"])
+
+	content_lst.append(data[0]["comments"])
+	content_lst2 = []
+	for i in (0,len(content_lst)):
+		content_lst2.append(content_list["content"])
 
 	# global A
 	# A = list(output.keys())
@@ -114,7 +117,7 @@ def result2():
 	# 	res.append(a)
 
 	# print("AAAAAAAAAAAAAAAA:",a,file=sys.stderr)
-	return render_template('result2.html',artist=artist,title=title,output=output,len=len(output),content_lst=content_lst,len2=len(content_lst))
+	return render_template('result2.html',artist=artist,title=title,output=output,len=len(output),content_lst=content_lst2,len2=len(content_lst2))
 
 
 def handle_reddit_crawler(a,b):
