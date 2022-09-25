@@ -101,11 +101,11 @@ def result2():
 	output = handle_reddit_crawler(artist,title)
 
 	with open('keydict_list.json') as json_file:
-    	data = json.load(json_file)
+		data = json.load(json_file)
 
-    content_lst = []
-    for i in data:
-    	content_lst.append(data[i]["content"])
+	content_lst = []
+	for i in data:
+		content_lst.append(data[i]["content"])
 
 	# global A
 	# A = list(output.keys())
