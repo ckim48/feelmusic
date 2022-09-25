@@ -104,7 +104,7 @@ def result2():
 		data = json.load(json_file)
 		#mock
 	content_lst = []
-	for i in data:
+	for i in range(len(data)):
 		content_lst.append(data[i]["content"])
 
 	# global A
