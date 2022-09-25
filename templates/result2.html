@@ -83,8 +83,15 @@ against those demonstrating negative sentiment.
             
 </div> -->  
             <center>
-            <h2>Keywords relating to {{title}} - {{artist}}</h2>
+            <h2><span class="reddit">Reddit</span> Posts relating to {{title}} - {{artist}}</h2>
             <ul class="keywords mt-3">
+                            {%for i in range(0, len2)%}
+                                <li>{{i}}. {{content_lst[i]}}</li>
+                                {%endfor%}
+                            </ul>
+            <h2>Keywords relating to {{title}} - {{artist}}</h2>
+
+                        <ul class="keywords mt-3">
                             {%for i in range(0, len)%}
                                 <li>{{output[i]}}</li>
                                 {%endfor%}

@@ -9,7 +9,7 @@ from io import StringIO
 from collections import defaultdict
 import string
 import time
-
+import json
 from nlp_runner2 import nlp_runner
 
 app = Flask(__name__)
@@ -99,6 +99,14 @@ def result2():
 	title = request.form.get('title')
 
 	output = handle_reddit_crawler(artist,title)
+
+	with open('keydict_list.json') as json_file:
+    	data = json.load(json_file)
+
+    content_lst = []
+    for i in data:
+    	content_lst.append(data[i]["content"])
+
 	# global A
 	# A = list(output.keys())
 	# for i in range(len(A)):
@@ -106,7 +114,7 @@ def result2():
 	# 	res.append(a)
 
 	# print("AAAAAAAAAAAAAAAA:",a,file=sys.stderr)
-	return render_template('result2.html',artist=artist,title=title,output=output,len=len(output))
+	return render_template('result2.html',artist=artist,title=title,output=output,len=len(output),content_lst=content_lst,len2=len(content_lst))
 
 
 def handle_reddit_crawler(a,b):
