@@ -41,7 +41,7 @@ class nlp_runner:
                              password='cookies0803',
                              user_agent='chaec0803')
         subreddit = reddit.subreddit(topic)
-        hot_python = subreddit.hot(limit=25)
+        hot_python = subreddit.hot(limit=20)
         if len(hot_python) == 0:
             return list(),list()
         subreddit_objs = [submission for submission in hot_python]
