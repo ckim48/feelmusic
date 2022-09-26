@@ -54,6 +54,10 @@ class nlp_runner:
                 subreddit_objs.append(next(iterobject))
             except StopIteration:
                 break
+            except:
+                pass
+            except prawcore.exceptions.BadRequest:
+                pass
             except Forbidden:
                 pass
         # for submission in hot_python:
