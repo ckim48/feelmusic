@@ -50,7 +50,7 @@ class nlp_runner:
         for submission in hot_python:
             try:
                 subreddit_objs.append(submission)
-            except:
+            except Forbidden:
                 pass
         # subreddit_objs = [submission for submission in hot_python]
 
