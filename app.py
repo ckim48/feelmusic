@@ -121,14 +121,14 @@ def result2():
 			lst3.append((temp_t.sentiment.polarity))
 		for j in lst3:
 			if j < 0:
-				neg+=1
+				neg += 1
 			else:
-				pos+=1 #mock
+				pos += 1 #mock
 		len2 = len(content_lst)
 		print("AAAAAAAAAAAAAAAAPOS:",pos,file=sys.stderr)
 		print("AAAAAAAAAAAAAAAANEG:",neg,file=sys.stderr)
 		print("AAAAAAAAAAAAAAAALEN2:",len2,file=sys.stderr)
-		avg_por =(pos)/(len2)
+		avg_por =(pos)/(pos+neg)
 	print(content_lst)
 	avg_por_rev = 100-avg_por
 	# global A
