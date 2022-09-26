@@ -99,15 +99,19 @@ def result2():
 	title = request.form.get('title')
 
 	output = handle_reddit_crawler(artist,title)
-
-	with open('/home/ckim48/mysite/keydict_list.json') as json_file:
-		data = json.load(json_file)
-			#mock
-	content_lst = []
-	for i in range(0,len(data)):
-		if data[i]["title"] != "":
+	if output == "None":
+		content_lst = "None"
+	else:
+		with open('/home/ckim48/mysite/keydict_list.json') as json_file:
+			data = json.load(json_file)
+				#mock
+		content_lst = []
+		len2 = 0
+		for i in range(0,len(data)):
+			if data[i]["title"] != "":
 		
 			content_lst.append(data[i]["title"])
+		len2 = len(content_lst)
 	print(content_lst)
 	# global A
 	# A = list(output.keys())
@@ -116,7 +120,7 @@ def result2():
 	# 	res.append(a)
 
 	# print("AAAAAAAAAAAAAAAA:",a,file=sys.stderr)
-	return render_template('result2.html',artist=artist,title=title,output=output,len=len(output),content_lst=content_lst,len2=len(content_lst))
+	return render_template('result2.html',artist=artist,title=title,output=output,len=len(output),content_lst=content_lst,len2=len2)
 
 
 def handle_reddit_crawler(a,b):

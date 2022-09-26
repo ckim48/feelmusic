@@ -85,16 +85,24 @@ against those demonstrating negative sentiment.
             <center>
             <h2><span class="reddit">Reddit</span> Posts relating to {{title}} - {{artist}}</h2>
             <ul class="keywords mt-3">
+                        {%if len2 != 0%}
                             {%for i in range(0, len2)%}
                                 <li><span class="numbering">{{i+1}}.</span> {{content_lst[i]}}</li>
                                 {%endfor%}
+                        {% else %}
+                            <li>No posts are found <i class="fa-regular fa-face-sad-tear"></i></li>
                             </ul>
+                        {% endif %}
             <h2>Keywords relating to {{title}} - {{artist}}</h2>
 
                         <ul class="keywords mt-3">
-                            {%for i in range(0, len)%}
-                                <li>{{output[i]}}</li>
-                                {%endfor%}
+                            {%if len2 != 0%}
+                                {%for i in range(0, len)%}
+                                    <li>{{output[i]}}</li>
+                                    {%endfor%}
+                            {% else %}
+                                <li></li>
+                            {% endif %}
                             </ul>
             </center>
         </div>

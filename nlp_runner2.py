@@ -44,7 +44,12 @@ class nlp_runner:
         hot_python = subreddit.hot(limit=20)
         # if len(hot_python) == 0:
         #     return list(),list()
-        subreddit_objs = [submission for submission in hot_python]
+        try:
+            subreddit_objs = [submission for submission in hot_python]
+        except Forbidden:
+           print(f"ABC")
+           return "None", {}
+        #subreddit_objs = [submission for submission in hot_python]
         posts = list()
         fdist = nltk.FreqDist()
 
@@ -414,6 +419,8 @@ class nlp_runner:
 
         print("Prawling Data")
         postDict_list, fdist = self.makePostList(topic)
+        if postDict_list == "None":
+            return "None"
         with open("/home/ckim48/mysite/postDict_list.json", "w") as outfile:
             json.dump(postDict_list, outfile)
         with open("/home/ckim48/mysite/fdist.json", "w") as outfile:
