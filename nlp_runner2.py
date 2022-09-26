@@ -55,7 +55,6 @@ class nlp_runner:
             try:
                 subreddit_objs.append(next(iterobject))
             except NotFound:
-                abb = next(iterobject)
                 continue
             except StopIteration:
                 break
