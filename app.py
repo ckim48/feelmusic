@@ -11,6 +11,8 @@ import string
 import time
 import json
 from nlp_runner2 import nlp_runner
+from textblob import TextBlob
+
 
 app = Flask(__name__)
 output = {}
@@ -99,6 +101,8 @@ def result2():
 	title = request.form.get('title')
 
 	output = handle_reddit_crawler(artist,title)
+	lst3 = []
+	sum_por = 0
 	if output == "None":
 		content_lst = "None"
 		len2 = 0
@@ -110,8 +114,15 @@ def result2():
 		for i in range(0,len(data)):
 			if data[i]["title"] != "":
 				content_lst.append(data[i]["title"])
+		for i in content_lst:
+		    temp_t = TextBlob("i")
+			lst3.append((i.sentiment.polarity))
+		for j in lst3:
+			sum_por += j
 		len2 = len(content_lst)
+		avg_por = int(j/len2)
 	print(content_lst)
+	avg_por_rev = 100-avg_por
 	# global A
 	# A = list(output.keys())
 	# for i in range(len(A)):
@@ -119,7 +130,7 @@ def result2():
 	# 	res.append(a)
 
 	# print("AAAAAAAAAAAAAAAA:",a,file=sys.stderr)
-	return render_template('result2.html',artist=artist,title=title,output=output,len=len(output),content_lst=content_lst,len2=len2)
+	return render_template('result2.html',artist=artist,title=title,output=output,len=len(output),content_lst=content_lst,len2=len2,avg_por=avg_por,avg_por_rev=avg_por_rev)
 
 
 def handle_reddit_crawler(a,b):

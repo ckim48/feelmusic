@@ -85,6 +85,14 @@ against those demonstrating negative sentiment.
             <center>
             {%if len2 != 0%}
                 <h2>Sentiments</h2>
+                                                <div class="progress">
+                                          <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{avg_por}}%">
+                                           <span class="intro-t">  % of like</span>
+                                          </div>
+                                          <div class="progress-bar progress-bar dlike-c" role="progressbar" style="width:{{avg_por_rev}}%">
+                                            <span class="intro-t">  % of dislike</span>
+                                          </div>
+                                    </div>
             {% endif %}
             <h2><span class="reddit">Reddit</span> Posts relating to {{title}} - {{artist}}</h2>
             <ul class="keywords mt-3">
