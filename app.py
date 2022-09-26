@@ -125,7 +125,10 @@ def result2():
 			else:
 				pos+=1 #mock
 		len2 = len(content_lst)
-		avg_por =(pos+2)/((neg-2)+pos)
+		print("AAAAAAAAAAAAAAAAPOS:",pos,file=sys.stderr)
+		print("AAAAAAAAAAAAAAAANEG:",neg,file=sys.stderr)
+		print("AAAAAAAAAAAAAAAALEN2:",len2,file=sys.stderr)
+		avg_por =(pos)/(len2)
 	print(content_lst)
 	avg_por_rev = 100-avg_por
 	# global A
