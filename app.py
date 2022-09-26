@@ -102,8 +102,8 @@ def result2():
 
 	output = handle_reddit_crawler(artist,title)
 	lst3 = []
-	pos = 0
-	neg = 0
+	pos = 1
+	neg = 1
 	sum_por = 0
 	if output == "None":
 		content_lst = "None"
@@ -125,7 +125,7 @@ def result2():
 			else:
 				pos+=1 #mock
 		len2 = len(content_lst)
-		avg_por =(pos)/(neg+pos)
+		avg_por =(pos+2)/((neg-2)+pos)
 	print(content_lst)
 	avg_por_rev = 100-avg_por
 	# global A
