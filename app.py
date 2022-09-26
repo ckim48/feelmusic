@@ -102,6 +102,8 @@ def result2():
 
 	output = handle_reddit_crawler(artist,title)
 	lst3 = []
+	pos = 0
+	neg = 0
 	sum_por = 0
 	if output == "None":
 		content_lst = "None"
@@ -115,12 +117,15 @@ def result2():
 			if data[i]["title"] != "":
 				content_lst.append(data[i]["title"])
 		for i in content_lst:
-		    temp_t = TextBlob("i")
-			lst3.append((i.sentiment.polarity))
+		    temp_t = TextBlob(i)
+			lst3.append((temp_t.sentiment.polarity))
 		for j in lst3:
-			sum_por += j
+			if j < 0:
+				neg+=1
+			else:
+				pos+=1
 		len2 = len(content_lst)
-		avg_por = int(j/len2)
+		avg_por =(pos)/(neg+pos)
 	print(content_lst)
 	avg_por_rev = 100-avg_por
 	# global A
