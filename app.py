@@ -104,13 +104,11 @@ def result2():
 	else:
 		with open('/home/ckim48/mysite/keydict_list.json') as json_file:
 			data = json.load(json_file)
-				#mock
 		content_lst = []
 		len2 = 0
 		for i in range(0,len(data)):
 			if data[i]["title"] != "":
-		
-			content_lst.append(data[i]["title"])
+				content_lst.append(data[i]["title"])
 		len2 = len(content_lst)
 	print(content_lst)
 	# global A
