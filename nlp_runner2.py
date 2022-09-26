@@ -55,7 +55,7 @@ class nlp_runner:
             try:
                 subreddit_objs.append(next(iterobject))
             except NotFound:
-                break
+                continue
         #     except StopIteration:
         #         break
         #     except prawcore.exceptions.BadRequest:
