@@ -127,7 +127,7 @@ def handle_reddit_crawler(a,b):
     print("handling reddit crawler.......processing...")
     global output
 
-    output = nlp_runner(a, b).main()
+    output = nlp_runner(b, a).main()
     
     print("about to return..")
 
