@@ -55,8 +55,9 @@ class nlp_runner:
             try:
                 subreddit_objs.append(next(iterobject))
             except NotFound:
-                print('Hello world!', file=sys.stderr)
-                continue
+                return "None", []
+            except Forbidden:
+                return "None", []
             except StopIteration:
                 break
 
