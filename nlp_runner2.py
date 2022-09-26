@@ -49,22 +49,22 @@ class nlp_runner:
         #     return list(),list()
         iterobject = iter(hot_python)
         subreddit_objs = []
-        while iterobject:
-            try:
-                subreddit_objs.append(next(iterobject))
-            except StopIteration:
-                break
-            except prawcore.exceptions.BadRequest:
-                pass
-            except Forbidden:
-                pass
-            except:
-                pass
-        # for submission in hot_python:
+        # while iterobject:
         #     try:
-        #         subreddit_objs.append(submission)
+        #         subreddit_objs.append(next(iterobject))
+        #     except StopIteration:
+        #         break
         #     except prawcore.exceptions.BadRequest:
         #         pass
+        #     except Forbidden:
+        #         pass
+        #     except:
+        #         pass
+        for submission in hot_python:
+            try:
+                subreddit_objs.append(submission)
+            except HTTPError:
+                continue
         # subreddit_objs = [submission for submission in hot_python]
 
         #subreddit_objs = [submission for submission in hot_python]
