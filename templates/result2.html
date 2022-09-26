@@ -94,7 +94,7 @@ against those demonstrating negative sentiment.
                                           </div>
                                     </div>
             {% endif %}
-            <h2><span class="reddit mt-3">Reddit</span> Posts relating to {{title}} - {{artist}}</h2>
+            <h2 class="mt-4"><span class="reddit">Reddit</span> Posts relating to {{title}} - {{artist}}</h2>
             <ul class="keywords mt-3">
                         {%if len2 != 0%}
                             {%for i in range(0, len2)%}
@@ -104,7 +104,7 @@ against those demonstrating negative sentiment.
                             <li>No posts are found <i class="fa-regular fa-face-sad-tear"></i></li>
                             </ul>
                         {% endif %}
-            <h2>Keywords relating to {{title}} - {{artist}}</h2>
+            <h2 class="mt-4">Keywords relating to {{title}} - {{artist}}</h2>
 
                         <ul class="keywords mt-3">
                             {%if len2 != 0%}
