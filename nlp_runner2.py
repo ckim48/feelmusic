@@ -51,13 +51,15 @@ class nlp_runner:
         #     return list(),list()
         iterobject = iter(hot_python)
         subreddit_objs = []
-        # while True:
-        #     try:
-        #         subreddit_objs.append(next(iterobject))
-        #     except NotFound:
-        #         continue
-        #     except StopIteration:
-        #         break
+        while True:
+            try:
+                subreddit_objs.append(next(iterobject))
+            except NotFound:
+                print('Hello world!', file=sys.stderr)
+                continue
+            except StopIteration:
+                break
+
         #     except StopIteration:
         #         break
         #     except prawcore.exceptions.BadRequest:
@@ -66,12 +68,12 @@ class nlp_runner:
         #         pass
         #     except:
         #         pass
-        for submission in hot_python:
-            try:
-                subreddit_objs.append(submission)
-            except NotFound:
-                print('Hello world!', file=sys.stderr)
-                continue
+        # for submission in hot_python:
+        #     try:
+        #         subreddit_objs.append(submission)
+        #     except NotFound:
+        #         print('Hello world!', file=sys.stderr)
+        #         continue
         # subreddit_objs = [submission for submission in hot_python]
 
         #subreddit_objs = [submission for submission in hot_python]
