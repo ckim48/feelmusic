@@ -57,7 +57,7 @@ class nlp_runner:
             except NotFound:
                 abb = next(iterobject)
                 continue
-            except:
+            except StopIteration:
                 break
         #     except StopIteration:
         #         break
