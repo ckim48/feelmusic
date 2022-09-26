@@ -101,6 +101,7 @@ def result2():
 	output = handle_reddit_crawler(artist,title)
 	if output == "None":
 		content_lst = "None"
+		len2 = 0
 	else:
 		with open('/home/ckim48/mysite/keydict_list.json') as json_file:
 			data = json.load(json_file)
