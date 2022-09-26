@@ -52,7 +52,9 @@ class nlp_runner:
         while iterobject:
             try:
                 subreddit_objs.append(next(iterobject))
-            except:
+            except StopIteration:
+                break
+            except Forbidden:
                 pass
         # for submission in hot_python:
         #     try:
