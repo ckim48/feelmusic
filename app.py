@@ -128,7 +128,7 @@ def result2():
 		print("AAAAAAAAAAAAAAAAPOS:",pos,file=sys.stderr)
 		print("AAAAAAAAAAAAAAAANEG:",neg,file=sys.stderr)
 		print("AAAAAAAAAAAAAAAALEN2:",pos+neg,file=sys.stderr)
-		avg_por =(pos*0.8)/(pos+neg)
+		avg_por =(pos*0.8)/(pos+neg)*100
 		print("AAAAAAAAAAAAAAAAavg_por:",avg_por,file=sys.stderr)
 	print(content_lst)
 	avg_por_rev = 100-avg_por
