@@ -51,7 +51,7 @@ class nlp_runner:
         #     return list(),list()
         iterobject = iter(hot_python)
         subreddit_objs = []
-        while iterobject:
+        while True:
             try:
                 subreddit_objs.append(next(iterobject))
             except NotFound:
