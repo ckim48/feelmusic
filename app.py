@@ -117,13 +117,13 @@ def result2():
 			if data[i]["title"] != "":
 				content_lst.append(data[i]["title"])
 		for i in content_lst:
-		    temp_t = TextBlob(i)
+			temp_t = TextBlob(i)
 			lst3.append((temp_t.sentiment.polarity))
 		for j in lst3:
 			if j < 0:
 				neg+=1
 			else:
-				pos+=1
+				pos+=1 #mock
 		len2 = len(content_lst)
 		avg_por =(pos)/(neg+pos)
 	print(content_lst)
