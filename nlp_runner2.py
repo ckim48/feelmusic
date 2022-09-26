@@ -53,7 +53,7 @@ class nlp_runner:
             try:
                 subreddit_objs.append(next(iterobject))
             except:
-                pss
+                pass
         # for submission in hot_python:
         #     try:
         #         subreddit_objs.append(submission)
