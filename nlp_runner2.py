@@ -66,9 +66,7 @@ class nlp_runner:
             try:
                 subreddit_objs.append(submission)
             except NotFound:
-                continue
-            except Forbidden:
-                continue
+                break
         # subreddit_objs = [submission for submission in hot_python]
 
         #subreddit_objs = [submission for submission in hot_python]
