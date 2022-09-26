@@ -46,6 +46,7 @@ class nlp_runner:
         hot_python = subreddit.hot(limit=20)
         # if len(hot_python) == 0:
         #     return list(),list()
+        subreddit_objs = []
         try:
             for submission in hot_python:
                 subreddit_objs.append(submission)
