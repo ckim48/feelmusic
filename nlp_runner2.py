@@ -10,6 +10,8 @@ from nltk.corpus import stopwords
 from nltk.corpus import wordnet as wn
 from nltk.stem import *
 from prawcore.exceptions import Forbidden
+from prawcore.exceptions import NotFound
+
 import prawcore
 
 import spacy
@@ -63,7 +65,9 @@ class nlp_runner:
         for submission in hot_python:
             try:
                 subreddit_objs.append(submission)
-            except HTTPError:
+            except NotFound:
+                continue
+            except Forbidden:
                 continue
         # subreddit_objs = [submission for submission in hot_python]
 
