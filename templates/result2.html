@@ -85,7 +85,7 @@ against those demonstrating negative sentiment.
             <center>
             {%if len2 != 0%}
                 <h2>Sentiments</h2>
-                                                <div class="progress mx-4">
+                                                <div class="progress mx-5 mb-3">
                                           <div class="progress-bar progress-bar like-c" role="progressbar" style="width:{{avg_por}}%">
                                        <span class="mbbar">  <i class="fa-solid fa-face-smile-beam good mbbar2"></i> {{avg_por}}%</span>
                                           </div>
@@ -94,7 +94,7 @@ against those demonstrating negative sentiment.
                                           </div>
                                     </div>
             {% endif %}
-            <h2 class="mt-4"><span class="reddit">Reddit</span> Posts relating to {{title}} - {{artist}}</h2>
+            <h2 class="mt-5"><span class="reddit">Reddit</span> Posts relating to {{title}} - {{artist}}</h2>
             <ul class="keywords mt-3">
                         {%if len2 != 0%}
                             {%for i in range(0, len2)%}
@@ -104,7 +104,7 @@ against those demonstrating negative sentiment.
                             <li>No posts are found <i class="fa-regular fa-face-sad-tear"></i></li>
                             </ul>
                         {% endif %}
-            <h2 class="mt-4">Keywords relating to {{title}} - {{artist}}</h2>
+            <h2 class="mt-5">Keywords relating to {{title}} - {{artist}}</h2>
 
                         <ul class="keywords mt-3">
                             {%if len2 != 0%}
