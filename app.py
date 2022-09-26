@@ -131,7 +131,7 @@ def result2():
 		avg_por = round((pos*0.8)/(pos+neg)*100,2)
 		print("AAAAAAAAAAAAAAAAavg_por:",avg_por,file=sys.stderr)
 	print(content_lst)
-	avg_por_rev = 100-avg_por
+	avg_por_rev = round(100-avg_por,2)
 	# global A
 	# A = list(output.keys())
 	# for i in range(len(A)):
