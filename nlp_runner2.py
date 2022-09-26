@@ -47,10 +47,12 @@ class nlp_runner:
         # if len(hot_python) == 0:
         #     return list(),list()
         try:
-            subreddit_objs = [submission for submission in hot_python]
-        except Forbidden:
-           print(f"ABC")
-           return "None", {}
+            for submission in hot_python:
+                subreddit_objs.append(submission)
+        except:
+            pass
+        # subreddit_objs = [submission for submission in hot_python]
+
         #subreddit_objs = [submission for submission in hot_python]
         posts = list()
         fdist = nltk.FreqDist()
