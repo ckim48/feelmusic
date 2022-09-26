@@ -51,15 +51,15 @@ class nlp_runner:
         #     return list(),list()
         iterobject = iter(hot_python)
         subreddit_objs = []
-        while True:
-            try:
-                subreddit_objs.append(next(iterobject))
-            except NotFound:
-                return "None", []
-            except Forbidden:
-                return "None", []
-            except StopIteration:
-                break
+        # while True:
+        #     try:
+        #         subreddit_objs.append(next(iterobject))
+        #     except NotFound:
+        #         return "None", []
+        #     except Forbidden:
+        #         return "None", []
+        #     except StopIteration:
+        #         break
 
         #     except StopIteration:
         #         break
@@ -69,7 +69,11 @@ class nlp_runner:
         #         pass
         #     except:
         #         pass
-        # for submission in hot_python:
+        try:
+            for submission in hot_python:
+                subreddit_objs.append(submission)
+        except:
+            return "None", {}
         #     try:
         #         subreddit_objs.append(submission)
         #     except NotFound:
