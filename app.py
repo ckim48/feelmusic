@@ -100,6 +100,11 @@ def result2():
 	artist = request.form.get('artist')
 	title = request.form.get('title')
 
+	ar = artist.split(" ")
+	ti = title.split(" ")
+	arist = '+'.join(ar)
+	title = '+'.join(ti)
+
 	output = handle_reddit_crawler(artist,title)
 	lst3 = []
 	pos = 1
@@ -138,7 +143,7 @@ def handle_reddit_crawler(a,b):
     print("handling reddit crawler.......processing...")
     global output
 
-    output = nlp_runner(b, a).main()
+    output = nlp_runner(a, b).main()
     
     print("about to return..")
 
