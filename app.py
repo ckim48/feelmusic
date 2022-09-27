@@ -107,6 +107,8 @@ def result2():
 	sum_por = 0
 	if output == "None":
 		content_lst = "None"
+		avg_por = 0
+		avg_por_rev = 0
 		len2 = 0
 	else:
 		with open('/home/ckim48/mysite/keydict_list.json') as json_file:
@@ -125,19 +127,8 @@ def result2():
 			else:
 				pos += 1 #mock
 		len2 = len(content_lst)
-		print("AAAAAAAAAAAAAAAAPOS:",pos,file=sys.stderr)
-		print("AAAAAAAAAAAAAAAANEG:",neg,file=sys.stderr)
-		print("AAAAAAAAAAAAAAAALEN2:",pos+neg,file=sys.stderr)
 		avg_por = round((pos*0.8)/(pos+neg)*100,2)
-		print("AAAAAAAAAAAAAAAAavg_por:",avg_por,file=sys.stderr)
-	print(content_lst)
 		avg_por_rev = round(100-avg_por,2)
-	# global A
-	# A = list(output.keys())
-	# for i in range(len(A)):
-	# 	a = showComments(A[i])
-	# 	res.append(a)
-
 	# print("AAAAAAAAAAAAAAAA:",a,file=sys.stderr)
 	return render_template('result2.html',artist=artist,title=title,output=output,len=len(output),content_lst=content_lst,len2=len2,avg_por=avg_por,avg_por_rev=avg_por_rev)
 
