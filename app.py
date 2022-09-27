@@ -102,10 +102,10 @@ def result2():
 
 	ar = artist.split(" ")
 	ti = title.split(" ")
-	arist = '+'.join(ar)
-	title = '+'.join(ti)
+	ar = '+'.join(ar)
+	ti = '+'.join(ti)
 
-	output = handle_reddit_crawler(artist,title)
+	output = handle_reddit_crawler(ar,ti)
 	lst3 = []
 	pos = 1
 	neg = 1
