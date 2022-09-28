@@ -70,17 +70,19 @@ on various types of data collected from the daily activities of Spotify’s user
 <center>
             <div >
                 <div  class="first-s">
-                        <p class="result-w mt-4" >
+                        <p class="result-w mt-4 mx-5" >
                             
                             Sentiment analysis was conducted on every music in the list by applying natural language processing
 on reddit posts to quantify reddit users’ positivity, negativity, or neutrality towards a certain piece of
-music. The percentage value represents the ratio of reddit posts demonstrating positive sentiment
+music. </p>
+<p class="result-w mt-4 mx-5">
+    The percentage value represents the ratio of reddit posts demonstrating positive sentiment
 against those demonstrating negative sentiment. 
 
                         </p>
                 </div>
                     <div class="first-s">
-                                <div class="progress">
+                                <div class="progress mx-5">
                                           <div class="progress-bar progress-bar like-c" role="progressbar" style="width:50%">
                                            <span class="intro-t">  % of like</span>
                                           </div>
@@ -89,7 +91,7 @@ against those demonstrating negative sentiment.
                                           </div>
                                     </div>
                     </div>
-                    <div class="row">
+                    <div class="row mx-5">
                             <ul class="recommend mt-2 me-4">
                                 <li class="reli mt-4 mb-4">
                                    <p class="first-s3">{{music_list[0]}}" - {{artist_list[0]}} </p>
@@ -425,7 +427,7 @@ against those demonstrating negative sentiment.
                     </center>
 
 
-                    <p class="mx-5">See how other people feel about a certain piece of music. By clicking on the “Search” button, you will be initiating sentiment analysis on all Reddit posts that include the artist and the title of your choice.</p>
+                    <p class="result-w mx-5">See how other people feel about a certain piece of music. By clicking on the “Search” button, you will be initiating sentiment analysis on all Reddit posts that include the artist and the title of your choice.</p>
 <!--                     <div class="loader">
                     </div> -->
                     <form action = "../../result2" method="POST">
